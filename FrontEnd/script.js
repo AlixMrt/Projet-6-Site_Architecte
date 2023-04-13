@@ -4,22 +4,28 @@ async function loadData() {
   return (await fetch(`${baseUrl}works`)).json();
 }
 let works = [];
-console.log(works);
+
 document.addEventListener("DOMContentLoaded", async () => {
   try {
     works = await loadData();
   } catch (e) {
     console.log(`Error : ${e}`);
   }
-  return works;
+  works.forEach((work) => {
+    const gallery = document.getElementById("gallery");
+    console.log(gallery);
+
+    const workElement = document.createElement("figure");
+
+    const workImageElement = document.createElement("img");
+    workImageElement.src = work.imageUrl;
+    workImageElement.alt = work.title;
+
+    const workTitleElement = document.createElement("figcaption");
+    workTitleElement.innerText = work.title;
+
+    gallery.appendChild(workElement);
+    workElement.appendChild(workImageElement);
+    workElement.appendChild(workTitleElement);
+  });
 });
-
-console.log(works);
-
-// async;
-// const response = await fetch(`${baseUrl}works`).response.json();
-// // const works = await response.json();
-
-// console.log(baseUrl);
-// console.log(response);
-// console.log(works);
