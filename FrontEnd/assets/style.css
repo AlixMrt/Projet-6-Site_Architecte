@@ -221,14 +221,16 @@ li:hover {
   padding: 0.5em 1em;
   white-space: nowrap;
 }
+#portfolio #filtersList li:hover {
+  cursor: pointer;
+}
 #portfolio #filtersList li:not(:last-child) {
   margin-right: 0.8em;
 }
 
 .activeFilter {
-  color: white;
+  color: white !important;
   background: #1d6154;
-  cursor: pointer;
 }
 .gallery {
   width: 100%;
