@@ -1,55 +1,60 @@
+import { getData, postWork } from "./fetch_functions.js";
+import { addWorksModal } from "./add_works.js";
+import { getFormData } from "./form.js";
+
 const modalBtn = document.querySelector(".modal-btn");
 const modalBg = document.querySelector(".modal-bg");
 const closeModalsIcon1 = document.querySelector(".close-modal-1");
 const closeModalsIcon2 = document.querySelector(".close-modal-2");
-
 const modalUpdate = document.querySelector(".modal--update");
 const btnOpenCreateModal = document.querySelector(".btn--open-Create-Modal");
-
 const modalCreate = document.querySelector(".modal--create");
 
-console.log(modalBtn);
+let works = [];
+let categories = [];
+
+// // // //
+// // // // // Modal #1
+// // // //
+
 // Opens the first Modal (update)
 modalBtn.addEventListener("click", async () => {
   modalBg.classList.add("bg-active");
   modalUpdate.classList.add("modal-active");
 
-  // Calls the Api and loads the photos within the Modal-gallery element
+  // Gets Data from the Api (fetch_functions.js)
   try {
-    works = await loadData("works");
-    categories = await loadData("categories");
+    works = await getData("works");
+    categories = await getData("categories");
   } catch (e) {
     console.log(`Error : ${e}`);
   }
-
-  const modalGallery = document.querySelector(".modal__gallery");
-  modalGallery.innerHTML = "";
-  works.forEach((work) => {
-    console.log(work.id);
-    const modalFigureElement = document.createElement("figure");
-    const modalImageElement = document.createElement("img");
-    modalImageElement.src = work.imageUrl;
-
-    const modalIconElement = document.createElement("i");
-    modalIconElement.classList = "fa-solid fa-trash-can";
-    modalIconElement.addEventListener("click", () => {
-      console.log("hello");
-      console.log(`${baseUrl}works/${work.id}`);
-      fetch(`${baseUrl}works/${work.id}`, {
-        method: "DELETE",
-      }).then((response) => response.json());
-    });
-    const modalFigcaptionElement = document.createElement("figcaption");
-    modalFigcaptionElement.innerText = "éditer";
-
-    modalGallery.appendChild(modalFigureElement);
-    modalFigureElement.appendChild(modalImageElement);
-    modalFigureElement.appendChild(modalIconElement);
-    modalFigureElement.appendChild(modalFigcaptionElement);
-  });
+  // display the works (image, title ...) dynamically on the modal page (add_works.js)
+  addWorksModal(works);
 });
 
-// Adds the close functionnality on both modals
+// // // //
+// // // // // Modal #2
+// // // //
+
+// Submit the form (2nd Modal)
+submitForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  // get data from the inputs of the modal and append it to a FormData object called "formData" (form.js)
+  getFormData();
+
+  //   Try do get the token that will be used for the Fetch POST call
+  let token = JSON.parse(localStorage.getItem("token:"));
+
+  //   Fetch POST call (fetch_functions.js)
+  postWork(formData);
+});
+
+// // // //
+// // // // // Modals Functionnalities (open, close, next, previous)
+// // // //
+// Adds the close functionality on both modals
 closeModalsIcon1.addEventListener("click", () => {
   modalBg.classList.remove("bg-active");
   modalUpdate.classList.remove("modal-active");
@@ -71,30 +76,4 @@ const btnPreviousModal = document.querySelector(".previous-modal");
 btnPreviousModal.addEventListener("click", () => {
   modalUpdate.classList.add("modal-active");
   modalCreate.classList.remove("modal-active");
-});
-
-// Submit the form (2nd Modal)
-
-const submitForm = document.querySelector("#submit-form");
-
-console.log(submitForm);
-submitForm.addEventListener("submit", function (e) {
-  console.log("hello");
-  e.preventDefault();
-  const imageFile = document.querySelector("#file-input").files[0];
-  const titreFile = document.querySelector("#titre").value;
-  const categorieFile = document.querySelector("#categorie").value;
-
-  const FormData = new FormData();
-  FormData.append("image-File", imageFile);
-  FormData.append("titre-File", titreFile);
-  FormData.append("categorie-File", categorieFile);
-
-  fetch(`${baseUrl}works`, {
-    method: "POST",
-    body: FormData,
-  })
-    .then((res) => res.json())
-    .then((data) => console.log(data))
-    .catch((err) => console.log(err));
 });

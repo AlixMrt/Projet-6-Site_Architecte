@@ -25,9 +25,10 @@
       <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
       <nav>
         <ul>
-          <li>projets</li>
-          <li>contact</li>
-          <li>login</li>
+          <li><a href="#portfolio">projets</a></li>
+          <li><a href="#contact">contact</a></li>
+          <li><a href="./log_in.html" id="login-btn">login</a></li>
+
           <li><img src="./assets/icons/instagram.png" alt="Instagram" /></li>
         </ul>
       </nav>
@@ -112,20 +113,25 @@
             <button onclick="document.getElementById('file').click()">
               + Ajouter photo
             </button>
-            <input type="file" id="file-input" accept=".jpg, .png" />
+            <input
+              type="file"
+              name="input-image"
+              id="file-input"
+              accept=".jpg, .png"
+            />
 
             <p>jpg, png : 4mn max</p>
           </div>
 
           <label for="titre">Titre</label>
-          <input type="text" name="titre" id="titre" />
+          <input type="text" name="input-titre" id="titre" />
           <br />
           <label for="categorie">Catégorie:</label>
 
-          <select name="categorie" id="categorie">
-            <option value="objets">Objets</option>
-            <option value="appartements">Appartements</option>
-            <option value="hotels&restaurants">Hotels & restaurants</option>
+          <select name="input-categorie" id="categorie">
+            <option value="1">Objets</option>
+            <option value="2">Appartements</option>
+            <option value="3">Hotels & restaurants</option>
           </select>
 
           <button type="submit" value="Envoyer" id="submitForm">Envoyer</button>
@@ -138,7 +144,12 @@
         ></span>
       </div>
     </div>
-    <script src="script.js"></script>
-    <script src="modal.js"></script>
+    <script src="script.js" type="module"></script>
+    <script src="fetch_functions.js" type="module"></script>
+    <script src="add_works.js" type="module"></script>
+    <script src="filters.js" type="module"></script>
+    <script src="modal.js" type="module"></script>
+    <script src="form.js" type="module"></script>
+    <script src="edit_mode.js" type="module"></script>
   </body>
 </html>

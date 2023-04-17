@@ -1,84 +1,32 @@
-const baseUrl = "http://localhost:5678/api/";
+import { getData } from "./fetch_functions.js";
+import { addFirstFilter, addFilters } from "./filters.js";
+import { addWorksMain } from "./add_works.js";
+import { updateEditModeDisplay } from "./edit_mode.js";
 
-async function loadData(key) {
-  return (await fetch(`${baseUrl}${key}`)).json();
-}
-let works = [];
-let categories = [];
+document.addEventListener("DOMContentLoaded", async () => {
+  //
 
-// document.addEventListener("DOMContentLoaded", async () => {
-//   try {
-//     works = await loadData("works");
-//     categories = await loadData("categories");
-//   } catch (e) {
-//     console.log(`Error : ${e}`);
-//   }
-//   const gallery = document.getElementById("gallery");
-//   works.forEach((work) => {
-//     const workElement = document.createElement("figure");
-//     const workImageElement = document.createElement("img");
-//     workImageElement.src = work.imageUrl;
-//     workImageElement.alt = work.title;
-//     const workTitleElement = document.createElement("figcaption");
-//     workTitleElement.innerText = work.title;
-//     gallery.appendChild(workElement);
-//     workElement.appendChild(workImageElement);
-//     workElement.appendChild(workTitleElement);
-//   });
+  updateEditModeDisplay();
 
-//   // add an eventListener on the only non-dynamical filter ("Tous") so that it displays all the works
+  //
+  let works = [];
+  let categories = [];
+  const gallery = document.getElementById("gallery");
+  try {
+    works = await getData("works");
+    categories = await getData("categories");
+  } catch (e) {
+    console.log(`Error : ${e}`);
+  }
 
-//   const firstFilter = document.querySelector("#first-Filter");
-//   firstFilter.addEventListener("click", () => {
-//     gallery.innerHTML = "";
-//     works.forEach((work) => {
-//       const workElement = document.createElement("figure");
-//       const workImageElement = document.createElement("img");
-//       workImageElement.src = work.imageUrl;
-//       workImageElement.alt = work.title;
-//       const workTitleElement = document.createElement("figcaption");
-//       workTitleElement.innerText = work.title;
-//       gallery.appendChild(workElement);
-//       workElement.appendChild(workImageElement);
-//       workElement.appendChild(workTitleElement);
-//     });
-//   });
+  // displays the works (image, title ...) dynamically on the main page (add_works.js)
+  addWorksMain(works);
 
-//   // add filters dynamically and attach to them individually an eventListener that will filter the Works array
+  // adds an eventListener on the only non-dynamical filter ("Tous") so that it displays all the works (filters.js)
+  addFirstFilter(works);
 
-//   for (let i = 0; i < categories.length; i++) {
-//     const filterList = document.getElementById("filtersList");
-//     const filterElement = document.createElement("li");
-//     filterElement.innerText = categories[i].name;
-//     filterElement.classList.add("filter");
-//     filterElement.addEventListener("click", () => {
-//       gallery.innerHTML = "";
-//       const filteredWorks = works.filter((work) => {
-//         return work.categoryId === i + 1;
-//       });
-//       filteredWorks.forEach((work) => {
-//         const workElement = document.createElement("figure");
-//         const workImageElement = document.createElement("img");
-//         workImageElement.src = work.imageUrl;
-//         workImageElement.alt = work.title;
-//         const workTitleElement = document.createElement("figcaption");
-//         workTitleElement.innerText = work.title;
-//         gallery.appendChild(workElement);
-//         workElement.appendChild(workImageElement);
-//         workElement.appendChild(workTitleElement);
-//       });
-//     });
-//     filterList.appendChild(filterElement);
-//   }
-//   const filters = document.querySelectorAll(".filter");
-//   let location = 0;
-//   for (let i = 0; i < filters.length; i++) {
-//     filters[i].addEventListener("click", () => {
-//       filters[location].classList.remove("activeFilter");
-//       location = i;
-//       filters[location].classList.add("activeFilter");
-//     });
-//   }
+  // adds filters dynamically and attach to them individually an eventListener that will filter the Works array (filters.js)
+  addFilters(works, categories);
 
-//   console.log(works);
-// });
+  console.log("hello");
+});
