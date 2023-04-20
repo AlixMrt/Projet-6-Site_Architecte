@@ -5,10 +5,12 @@ import { tryLogin } from "./fetch_functions.js";
 // Submit the email and password
 
 const passwordForm = document.querySelector("#form-password");
-console.log(passwordForm);
+// console.log(passwordForm);
+
+let result2 = localStorage.hasOwnProperty("token");
+// console.log(result2);
 
 passwordForm.addEventListener("submit", function (e) {
-  console.log("hello");
   e.preventDefault();
 
   const userEmail = document.querySelector("#email").value;

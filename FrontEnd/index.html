@@ -21,135 +21,164 @@
     <link rel="stylesheet" href="./assets/style.css" />
   </head>
   <body>
-    <header>
-      <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
-      <nav>
-        <ul>
-          <li><a href="#portfolio">projets</a></li>
-          <li><a href="#contact">contact</a></li>
-          <li><a href="./log_in.html" id="login-btn">login</a></li>
-
-          <li><img src="./assets/icons/instagram.png" alt="Instagram" /></li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <section id="introduction">
-        <figure>
-          <img src="./assets/images/sophie-bluel.png" alt="" />
-        </figure>
-        <article>
-          <h2>Designer d'espace</h2>
-          <p>
-            Je raconte votre histoire, je valorise vos idées. Je vous accompagne
-            de la conception à la livraison finale du chantier.
-          </p>
-          <p>
-            Chaque projet sera étudié en commun, de façon à mettre en valeur les
-            volumes, les matières et les couleurs dans le respect de l’esprit
-            des lieux et le choix adapté des matériaux. Le suivi du chantier
-            sera assuré dans le souci du détail, le respect du planning et du
-            budget.
-          </p>
-          <p>
-            En cas de besoin, une équipe pluridisciplinaire peut-être constituée
-            : architecte DPLG, décorateur(trice)
-          </p>
-        </article>
-      </section>
-      <section id="portfolio">
-        <h2>
-          Mes Projets
-          <span>
-            <button class="modal-btn">
-              <i class="fa-regular fa-pen-to-square"></i> modifier
-            </button></span
-          >
-        </h2>
-
-        <ul id="filtersList">
-          <li id="first-Filter" class="filter activeFilter">Tous</li>
-        </ul>
-        <div class="gallery" id="gallery"></div>
-      </section>
-      <section id="contact">
-        <h2>Contact</h2>
-        <p>Vous avez un projet ? Discutons-en !</p>
-        <form action="#" method="post">
-          <label for="name">Nom</label>
-          <input type="text" name="name" id="name" />
-          <label for="email">Email</label>
-          <input type="email" name="email" id="email" />
-          <label for="message">Message</label>
-          <textarea name="message" id="message" cols="30" rows="10"></textarea>
-          <input type="submit" value="Envoyer" />
-        </form>
-      </section>
-    </main>
-
-    <footer>
-      <nav>
-        <ul>
-          <li>Mentions Légales</li>
-        </ul>
-      </nav>
-    </footer>
-    <div class="modal-bg">
-      <div class="modal modal--update">
-        <h2>Galerie photo</h2>
-        <div class="modal__gallery"></div>
-
-        <button class="btn--open-Create-Modal">Ajouter une photo</button>
-        <button class="btn--delete-gallery">Supprimer la gallerie</button>
-        <span class="close-modal close-modal-1"
-          ><i class="fa-solid fa-xmark"></i
-        ></span>
-      </div>
-      <div class="modal modal--create">
-        <h2>Ajout photo</h2>
-        <form method="post" id="submit-form">
-          <div class="container-photo-upload">
-            <i class="fa-sharp fa-regular fa-image"></i>
-            <button onclick="document.getElementById('file').click()">
-              + Ajouter photo
-            </button>
-            <input
-              type="file"
-              name="input-image"
-              id="file-input"
-              accept=".jpg, .png"
-            />
-
-            <p>jpg, png : 4mn max</p>
-          </div>
-
-          <label for="titre">Titre</label>
-          <input type="text" name="input-titre" id="titre" />
-          <br />
-          <label for="categorie">Catégorie:</label>
-
-          <select name="input-categorie" id="categorie">
-            <option value="1">Objets</option>
-            <option value="2">Appartements</option>
-            <option value="3">Hotels & restaurants</option>
-          </select>
-
-          <button type="submit" value="Envoyer" id="submitForm">Envoyer</button>
-        </form>
-        <span class="previous-modal"
-          ><i class="fa-solid fa-arrow-left"></i
-        ></span>
-        <span class="close-modal close-modal-2"
-          ><i class="fa-solid fa-xmark"></i
-        ></span>
-      </div>
+    <div class="header__editMode">
+      <p><i class="fa-regular fa-pen-to-square"></i>Mode edition</p>
+      <button>publier les changements</button>
     </div>
-    <script src="script.js" type="module"></script>
-    <script src="fetch_functions.js" type="module"></script>
-    <script src="add_works.js" type="module"></script>
-    <script src="filters.js" type="module"></script>
-    <script src="modal.js" type="module"></script>
-    <script src="form.js" type="module"></script>
-    <script src="edit_mode.js" type="module"></script>
+    <div class="body-inner-container">
+      <div class="header-container">
+        <header>
+          <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+          <nav>
+            <ul class="nav-links">
+              <li><a href="#portfolio">projets</a></li>
+              <li><a href="#contact">contact</a></li>
+              <li class="log-link">
+                <a href="./log_in.html" id="btn-login">login</a>
+              </li>
+
+              <li>
+                <img src="./assets/icons/instagram.png" alt="Instagram" />
+              </li>
+            </ul>
+          </nav>
+        </header>
+      </div>
+      <main>
+        <section id="introduction">
+          <figure>
+            <img src="./assets/images/sophie-bluel.png" alt="" />
+            <div class="iconModify" id="iconModify2">
+              <i class="fa-regular fa-pen-to-square"></i>
+              <p>modifier</p>
+            </div>
+          </figure>
+          <article>
+            <div class="iconModify" id="iconModify3">
+              <i class="fa-regular fa-pen-to-square"></i>
+              <p>modifier</p>
+            </div>
+
+            <h2>Designer d'espace</h2>
+            <p>
+              Je raconte votre histoire, je valorise vos idées. Je vous
+              accompagne de la conception à la livraison finale du chantier.
+            </p>
+            <p>
+              Chaque projet sera étudié en commun, de façon à mettre en valeur
+              les volumes, les matières et les couleurs dans le respect de
+              l’esprit des lieux et le choix adapté des matériaux. Le suivi du
+              chantier sera assuré dans le souci du détail, le respect du
+              planning et du budget.
+            </p>
+            <p>
+              En cas de besoin, une équipe pluridisciplinaire peut-être
+              constituée : architecte DPLG, décorateur(trice)
+            </p>
+          </article>
+        </section>
+        <section id="portfolio">
+          <h2>
+            Mes Projets
+            <span class="iconModify">
+              <button class="modal-btn">
+                <i class="fa-regular fa-pen-to-square"></i>
+                modifier
+              </button></span
+            >
+          </h2>
+
+          <ul id="filtersList">
+            <li id="first-Filter" class="filter activeFilter">Tous</li>
+          </ul>
+          <div class="gallery" id="gallery"></div>
+        </section>
+        <section id="contact">
+          <h2>Contact</h2>
+          <p>Vous avez un projet ? Discutons-en !</p>
+          <form action="#" method="post">
+            <label for="name">Nom</label>
+            <input type="text" name="name" id="name" />
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" />
+            <label for="message">Message</label>
+            <textarea
+              name="message"
+              id="message"
+              cols="30"
+              rows="10"
+            ></textarea>
+            <input type="submit" value="Envoyer" />
+          </form>
+        </section>
+      </main>
+
+      <footer>
+        <nav>
+          <ul>
+            <li>Mentions Légales</li>
+          </ul>
+        </nav>
+      </footer>
+      <div class="modal-bg">
+        <div class="modal modal--update">
+          <h2>Galerie photo</h2>
+          <div class="modal__gallery"></div>
+
+          <button class="btn--open-Create-Modal">Ajouter une photo</button>
+          <button class="btn--delete-gallery">Supprimer la gallerie</button>
+          <span class="close-modal close-modal-1"
+            ><i class="fa-solid fa-xmark"></i
+          ></span>
+        </div>
+        <div class="modal modal--create">
+          <h2>Ajout photo</h2>
+          <form method="post" id="submit-form">
+            <div class="container-photo-upload">
+              <i class="fa-sharp fa-regular fa-image"></i>
+              <button onclick="document.getElementById('file').click()">
+                + Ajouter photo
+              </button>
+              <input
+                type="file"
+                name="input-image"
+                id="file-input"
+                accept=".jpg, .png"
+              />
+
+              <p>jpg, png : 4mn max</p>
+            </div>
+
+            <label for="titre">Titre</label>
+            <input type="text" name="input-titre" id="titre" />
+            <br />
+            <label for="categorie">Catégorie:</label>
+
+            <select name="input-categorie" id="categorie">
+              <option value="1">Objets</option>
+              <option value="2">Appartements</option>
+              <option value="3">Hotels & restaurants</option>
+            </select>
+
+            <button type="submit" value="Envoyer" id="submitForm">
+              Envoyer
+            </button>
+          </form>
+          <span class="previous-modal"
+            ><i class="fa-solid fa-arrow-left"></i
+          ></span>
+          <span class="close-modal close-modal-2"
+            ><i class="fa-solid fa-xmark"></i
+          ></span>
+        </div>
+      </div>
+      <script src="script.js" type="module"></script>
+      <script src="fetch_functions.js" type="module"></script>
+      <script src="add_works.js" type="module"></script>
+      <script src="filters.js" type="module"></script>
+      <script src="modal.js" type="module"></script>
+      <script src="form.js" type="module"></script>
+      <script src="edit_mode.js" type="module"></script>
+    </div>
   </body>
 </html>

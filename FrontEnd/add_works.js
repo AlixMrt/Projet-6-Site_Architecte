@@ -16,7 +16,6 @@ const addWorksModal = (works) => {
   const modalGallery = document.querySelector(".modal__gallery");
   modalGallery.innerHTML = "";
   works.forEach((work) => {
-    console.log(work.id);
     const modalFigureElement = document.createElement("figure");
     const modalImageElement = document.createElement("img");
     modalImageElement.src = work.imageUrl;

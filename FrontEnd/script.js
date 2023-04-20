@@ -1,14 +1,11 @@
 import { getData } from "./fetch_functions.js";
 import { addFirstFilter, addFilters } from "./filters.js";
 import { addWorksMain } from "./add_works.js";
-import { updateEditModeDisplay } from "./edit_mode.js";
+import { editModeStatus } from "./edit_mode.js";
+
+editModeStatus();
 
 document.addEventListener("DOMContentLoaded", async () => {
-  //
-
-  updateEditModeDisplay();
-
-  //
   let works = [];
   let categories = [];
   const gallery = document.getElementById("gallery");
@@ -27,6 +24,4 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // adds filters dynamically and attach to them individually an eventListener that will filter the Works array (filters.js)
   addFilters(works, categories);
-
-  console.log("hello");
 });

@@ -128,12 +128,52 @@ table {
   border-spacing: 0;
 }
 /** end reset css**/
-body {
+
+.body-inner-container {
   max-width: 1140px;
   margin: auto;
   font-family: "Work Sans";
   font-size: 14px;
 }
+
+.header-container {
+  width: 100%;
+  /* margin-top: 100px; */
+}
+
+.header__editMode {
+  display: flex;
+  background-color: black;
+  width: 100vw;
+  height: 60px;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  column-gap: 2%;
+  display: none;
+}
+
+.header__editMode p i {
+  padding-right: 4px;
+}
+.header__editMode p {
+  font-size: 16px;
+}
+.header__editMode p:hover {
+  cursor: pointer;
+}
+.header__editMode button {
+  background: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 14px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+.header__editMode button:hover {
+  cursor: pointer;
+}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -179,7 +219,7 @@ li:hover {
 }
 #introduction {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
 }
 #introduction figure {
   flex: 1;
@@ -190,9 +230,30 @@ li:hover {
   width: 80%;
 }
 
+.fa-pen-to-square {
+  font-size: 1rem;
+}
+
+div.iconModify {
+  display: flex;
+  flex-direction: row;
+  column-gap: 5px;
+  align-items: baseline;
+  font-size: 13px;
+  display: none;
+}
+
+#introduction figure div.iconModify {
+  width: 80%;
+  margin: auto;
+  margin-top: 15px;
+}
+
 #introduction article {
+  margin-top: 3em;
   flex: 1;
 }
+
 #introduction h2 {
   margin-bottom: 1em;
 }
@@ -219,7 +280,6 @@ li:hover {
 }
 
 #portfolio #filtersList {
-  /* background: red; */
   display: flex;
   margin: 0 auto;
   justify-content: center;

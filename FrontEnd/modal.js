@@ -46,6 +46,7 @@ submitForm.addEventListener("submit", function (e) {
 
   //   Try do get the token that will be used for the Fetch POST call
   let token = JSON.parse(localStorage.getItem("token:"));
+  console.log(token);
 
   //   Fetch POST call (fetch_functions.js)
   postWork(formData);

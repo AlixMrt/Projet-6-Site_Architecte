@@ -1,4 +1,4 @@
-import { editModeStatus, updateEditModeDisplay } from "./edit_mode.js";
+import { editModeStatus } from "./edit_mode.js";
 const baseUrl = "http://localhost:5678/api/";
 
 // GET
@@ -26,7 +26,6 @@ const postWork = async (formData) => {
 // formData.append("password", userPassword);
 // console.log(Array.from(formData));
 const tryLogin = async function (userEmail, userPassword) {
-  console.log("hello");
   const response = await fetch(`${baseUrl}users/login`, {
     method: "POST",
     headers: {
@@ -38,11 +37,10 @@ const tryLogin = async function (userEmail, userPassword) {
     }),
   });
   if (response.status === 200) {
-    const token = response.json();
-    localStorage.setItem("token", token);
-
-    editModeStatus("set", "hide");
+    const token = await response.json();
+    localStorage.setItem("token", JSON.stringify(token));
     window.location.href = "./index.html";
+    editModeStatus();
   } else {
     window.alert("Wrong email or password");
   }
