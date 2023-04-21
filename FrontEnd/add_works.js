@@ -1,3 +1,7 @@
+import { deleteData } from "./fetch_functions.js";
+
+const token = JSON.parse(localStorage.getItem("token"));
+
 const addWorksMain = (works) => {
   works.forEach((work) => {
     const workElement = document.createElement("figure");
@@ -22,12 +26,9 @@ const addWorksModal = (works) => {
 
     const modalIconElement = document.createElement("i");
     modalIconElement.classList = "fa-solid fa-trash-can";
+
     modalIconElement.addEventListener("click", () => {
-      console.log("hello");
-      console.log(`${baseUrl}works/${work.id}`);
-      fetch(`${baseUrl}works/${work.id}`, {
-        method: "DELETE",
-      }).then((response) => response.json());
+      deleteData(work, token);
     });
     const modalFigcaptionElement = document.createElement("figcaption");
     modalFigcaptionElement.innerText = "éditer";

@@ -48,7 +48,45 @@ const tryLogin = async function (userEmail, userPassword) {
 // EDIT
 
 // DELETE
+// const deleteData = async (work, token) => {
+//   try {
+//     const response = await fetch(`${baseUrl}works/${work.id}`, {
+//       headers: {
+//         Accept: "application/json",
+//         Authentication: token.token,
+//         "X-Custom-Header": "header value",
+//       },
+//       method: "DELETE",
+//     });
+//   } catch (error) {
+//     console.log(`there was an error : ${error}`);
+//   }
+
+//   // if (!response.ok) {
+//   //   // get error message from body or default to response status
+//   //   const error = response.status;
+//   //   return Promise.reject(error);
+//   // }
+// };
+
+const deleteData = async (work, token) => {
+  const response = await fetch(`${baseUrl}works/${work.id}`, {
+    method: "DELETE",
+    headers: {
+      // Authentication: `Bearer ${token}`,
+      "x-access-token": `${token.token}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(work),
+  });
+  const data = await response.json;
+  console.log(data);
+  if (!response.ok) {
+    const message = `error: ${response.status}`;
+    throw new Error(message);
+  }
+};
 
 // Exports
 
-export { getData, postWork, tryLogin };
+export { getData, postWork, tryLogin, deleteData };

@@ -120,23 +120,28 @@
           </ul>
         </nav>
       </footer>
+      <!--  -->
+      <!-- Modals -->
+      <!--  -->
+
+      <!-- Modal #1 -->
       <div class="modal-bg">
         <div class="modal modal--update">
           <h2>Galerie photo</h2>
           <div class="modal__gallery"></div>
-
           <button class="btn--open-Create-Modal">Ajouter une photo</button>
           <button class="btn--delete-gallery">Supprimer la gallerie</button>
           <span class="close-modal close-modal-1"
             ><i class="fa-solid fa-xmark"></i
           ></span>
         </div>
+        <!-- Modal #2 -->
         <div class="modal modal--create">
           <h2>Ajout photo</h2>
           <form method="post" id="submit-form">
             <div class="container-photo-upload">
               <i class="fa-sharp fa-regular fa-image"></i>
-              <button onclick="document.getElementById('file').click()">
+              <button onclick="document.getElementById('file-input').click()">
                 + Ajouter photo
               </button>
               <input
@@ -145,7 +150,6 @@
                 id="file-input"
                 accept=".jpg, .png"
               />
-
               <p>jpg, png : 4mn max</p>
             </div>
 
@@ -153,13 +157,11 @@
             <input type="text" name="input-titre" id="titre" />
             <br />
             <label for="categorie">Catégorie:</label>
-
             <select name="input-categorie" id="categorie">
               <option value="1">Objets</option>
               <option value="2">Appartements</option>
               <option value="3">Hotels & restaurants</option>
             </select>
-
             <button type="submit" value="Envoyer" id="submitForm">
               Envoyer
             </button>

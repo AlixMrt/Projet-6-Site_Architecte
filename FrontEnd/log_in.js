@@ -7,7 +7,7 @@ import { tryLogin } from "./fetch_functions.js";
 const passwordForm = document.querySelector("#form-password");
 // console.log(passwordForm);
 
-let result2 = localStorage.hasOwnProperty("token");
+// let result2 = localStorage.hasOwnProperty("token");
 // console.log(result2);
 
 passwordForm.addEventListener("submit", function (e) {
