@@ -73,8 +73,7 @@ const deleteData = async (work, token) => {
   const response = await fetch(`${baseUrl}works/${work.id}`, {
     method: "DELETE",
     headers: {
-      // Authentication: `Bearer ${token}`,
-      "x-access-token": `${token.token}`,
+      Authorization: `Bearer ${token.token}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify(work),

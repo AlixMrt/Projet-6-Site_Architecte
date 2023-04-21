@@ -24,6 +24,7 @@ const editModeStatus = () => {
     const btnLogOut = document.createElement("a");
     console.log("newButtonWorking");
     btnLogOut.innerText = "logout";
+    btnLogOut.classList.add("hover");
     btnLogOut.addEventListener("click", () => {
       console.log("hello");
       logLink.removeChild(btnLogOut);

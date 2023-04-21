@@ -214,8 +214,18 @@ nav li {
   font-size: 1.2em;
 }
 
-li:hover {
+nav li a {
+  list-style: none;
+  color: black;
+  text-decoration: none;
+}
+
+nav li a:hover {
   color: #b1663c;
+}
+
+.hover:hover {
+  cursor: pointer;
 }
 #introduction {
   display: flex;
