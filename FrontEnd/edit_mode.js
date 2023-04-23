@@ -1,5 +1,5 @@
-// Checks with "get" what is the current mode (edit mode or not)
-// OR sets with "set" the new current mode (with the ${value} parameter)
+// All the visual changes that happen on the front-end when the user is logged-in (if a token in stored in localStorage)
+
 const editModeStatus = () => {
   const btnLog = document.querySelector("#btn-login");
   const btnModify = document.querySelector(".modal-btn");
@@ -19,7 +19,6 @@ const editModeStatus = () => {
     btnLog.style.display = "none";
 
     // Create a log-out button
-
     const btnLogOut = document.createElement("a");
     btnLogOut.innerText = "logout";
     btnLogOut.classList.add("hover");

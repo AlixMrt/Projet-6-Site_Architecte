@@ -10,10 +10,11 @@ const getFormData = () => {
   formData.append("image", image);
   formData.append("title", title);
   formData.append("category", category);
-  console.log([...formData]);
 
+  //   Gets the token that will be used for the Fetch POST call
   const token = JSON.parse(localStorage.getItem("token"));
 
+  //   Fetch POST call (fetch_functions.js)
   postWork(formData, token);
 };
 

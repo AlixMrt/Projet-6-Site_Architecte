@@ -1,5 +1,7 @@
 import { deleteData } from "./fetch_functions.js";
 
+// Adds works to the main gallery and to the modal gallery.
+
 const token = JSON.parse(localStorage.getItem("token"));
 
 const addWorksMain = (works) => {

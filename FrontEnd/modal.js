@@ -38,20 +38,14 @@ modalBtn.addEventListener("click", async () => {
 // // // //
 
 // Submit the form (2nd Modal)
-const submitForm = document.querySelector("#submit-form");
 
+// Add an event listener on the Submit button of the 2md Modal for a POST Fetch
+const submitForm = document.querySelector("#submit-form");
 submitForm.addEventListener("submit", function (e) {
   e.preventDefault();
-  console.log("woeking");
-  // get data from the inputs of the modal and append it to a FormData object called "formData" (form.js)
+  // Gets data from the inputs of the modal and append it to a FormData object called "formData" (form.js)
+  // Will also send the data via Fetch POST call (fetch_functions.js)
   getFormData();
-  // console.log(data);
-  //   Try do get the token that will be used for the Fetch POST call
-  // let token = JSON.parse(localStorage.getItem("token:"));
-  // console.log(token);
-
-  //   Fetch POST call (fetch_functions.js)
-  // postWork(data);
 });
 
 // // // //
