@@ -10,7 +10,6 @@ const editModeStatus = () => {
   const logLink = document.querySelector(".log-link");
 
   if (localStorage.hasOwnProperty("token")) {
-    console.log("I have a token stored");
     editTopBar.style.display = "flex";
     btnModify.style.display = "inline-block";
     btnModify2.style.display = "flex";
@@ -22,7 +21,6 @@ const editModeStatus = () => {
     // Create a log-out button
 
     const btnLogOut = document.createElement("a");
-    console.log("newButtonWorking");
     btnLogOut.innerText = "logout";
     btnLogOut.classList.add("hover");
     btnLogOut.addEventListener("click", () => {
@@ -35,11 +33,8 @@ const editModeStatus = () => {
 
     logLink.appendChild(btnLogOut);
   } else {
-    console.log("I have no token !!!");
     editTopBar.style.display = "none";
-
     btnModify.style.display = "none";
-
     btnModify2.style.display = "none";
     btnModify3.style.display = "none";
   }

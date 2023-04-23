@@ -138,15 +138,16 @@
         <!-- Modal #2 -->
         <div class="modal modal--create">
           <h2>Ajout photo</h2>
-          <form method="post" id="submit-form">
+
+          <form id="submit-form">
             <div class="container-photo-upload">
               <i class="fa-sharp fa-regular fa-image"></i>
-              <button onclick="document.getElementById('file-input').click()">
+              <!-- <button onclick="document.getElementById('file-input').click()">
                 + Ajouter photo
-              </button>
+              </button> -->
               <input
                 type="file"
-                name="input-image"
+                name="image"
                 id="file-input"
                 accept=".jpg, .png"
               />
@@ -154,10 +155,10 @@
             </div>
 
             <label for="titre">Titre</label>
-            <input type="text" name="input-titre" id="titre" />
+            <input type="text" name="title" id="titre" />
             <br />
             <label for="categorie">Catégorie:</label>
-            <select name="input-categorie" id="categorie">
+            <select name="category" id="categorie">
               <option value="1">Objets</option>
               <option value="2">Appartements</option>
               <option value="3">Hotels & restaurants</option>

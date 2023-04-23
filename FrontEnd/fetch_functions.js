@@ -7,24 +7,26 @@ const getData = async (key) => {
 };
 
 // // // //
-// // // // // POST
+// // // // // POST Work
 // // // //
-const postWork = async (formData) => {
+const postWork = (formData, token) => {
+  console.log([...formData]);
+  console.log(token);
   fetch(`${baseUrl}works`, {
-    headers: { Authentication: `Bearer {${token}}` },
     method: "POST",
     body: formData,
+    headers: {
+      Authorization: `Bearer ${token.token}`,
+    },
   })
     .then((res) => res.json())
     .then((data) => console.log(data))
     .catch((err) => console.log(err));
 };
 
-// I tried to POST with FormData but it's not working yet
-// const formData = new FormData();
-// formData.append("email", userEmail);
-// formData.append("password", userPassword);
-// console.log(Array.from(formData));
+// // // //
+// // // // // POST Log-in
+// // // //
 const tryLogin = async function (userEmail, userPassword) {
   const response = await fetch(`${baseUrl}users/login`, {
     method: "POST",
@@ -45,30 +47,10 @@ const tryLogin = async function (userEmail, userPassword) {
     window.alert("Wrong email or password");
   }
 };
-// EDIT
 
-// DELETE
-// const deleteData = async (work, token) => {
-//   try {
-//     const response = await fetch(`${baseUrl}works/${work.id}`, {
-//       headers: {
-//         Accept: "application/json",
-//         Authentication: token.token,
-//         "X-Custom-Header": "header value",
-//       },
-//       method: "DELETE",
-//     });
-//   } catch (error) {
-//     console.log(`there was an error : ${error}`);
-//   }
-
-//   // if (!response.ok) {
-//   //   // get error message from body or default to response status
-//   //   const error = response.status;
-//   //   return Promise.reject(error);
-//   // }
-// };
-
+// // // //
+// // // // // DELETE
+// // // //
 const deleteData = async (work, token) => {
   const response = await fetch(`${baseUrl}works/${work.id}`, {
     method: "DELETE",
