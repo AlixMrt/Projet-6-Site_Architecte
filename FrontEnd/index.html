@@ -96,7 +96,7 @@
         <section id="contact">
           <h2>Contact</h2>
           <p>Vous avez un projet ? Discutons-en !</p>
-          <form action="#" method="post">
+          <form>
             <label for="name">Nom</label>
             <input type="text" name="name" id="name" />
             <label for="email">Email</label>
@@ -126,7 +126,7 @@
 
       <!-- Modal #1 -->
       <div class="modal-bg">
-        <div class="modal modal--update">
+        <div class="modal1 modal modal--update">
           <h2>Galerie photo</h2>
           <div class="modal__gallery"></div>
           <button class="btn--open-Create-Modal">Ajouter une photo</button>
@@ -136,26 +136,39 @@
           ></span>
         </div>
         <!-- Modal #2 -->
-        <div class="modal modal--create">
+        <div class="modal modal2 modal--create">
           <h2>Ajout photo</h2>
 
           <form id="submit-form">
             <div class="container-photo-upload">
-              <i class="fa-sharp fa-regular fa-image"></i>
-              <button onclick="document.getElementById('file-input').click()">
-                + Ajouter photo
-              </button>
-              <input
-                type="file"
-                name="image"
-                id="file-input"
-                accept=".jpg, .png"
-              />
-              <p>jpg, png : 4mn max</p>
+              <div class="inputs-div">
+                <i class="fa-sharp fa-regular fa-image"></i>
+                <div
+                  id="add-photo"
+                  onclick="document.getElementById('file-input').click()"
+                >
+                  + Ajouter photo
+                </div>
+                <input
+                  type="file"
+                  name="image"
+                  id="file-input"
+                  accept=".jpg, .png"
+                />
+                <p>jpg, png : 4mo max</p>
+              </div>
+              <div class="output-div">
+                <output>
+                  <img
+                    src="../Backend/images/appartement-paris-x1651287435459.png"
+                    alt="upload image"
+                  />
+                </output>
+              </div>
             </div>
 
             <label for="titre">Titre</label>
-            <input type="text" name="title" id="titre" />
+            <input type="text" name="title" id="titre" required />
             <br />
             <label for="categorie">Catégorie:</label>
             <select name="category" id="categorie">
@@ -163,6 +176,9 @@
               <option value="2">Appartements</option>
               <option value="3">Hotels & restaurants</option>
             </select>
+            <p id="warning">Veuillez ajouter une image s'il vous plait</p>
+            <div class="border"></div>
+            <div id="fakeBtn">Envoyer</div>
             <button type="submit" value="Envoyer" id="submitForm">
               Valider
             </button>

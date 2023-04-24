@@ -23,7 +23,6 @@ const editModeStatus = () => {
     btnLogOut.innerText = "logout";
     btnLogOut.classList.add("hover");
     btnLogOut.addEventListener("click", () => {
-      console.log("hello");
       logLink.removeChild(btnLogOut);
       btnLog.style.display = "inline-block";
       localStorage.clear();

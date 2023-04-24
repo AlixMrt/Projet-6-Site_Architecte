@@ -511,7 +511,6 @@ footer nav ul {
 /* 2nd Modal */
 
 .modal--create form {
-  /* background: red; */
   width: 100%;
 }
 .modal--create form > * {
@@ -524,11 +523,15 @@ footer nav ul {
   align-items: center;
   background: #e8f1f6;
   width: 70%;
-  /* height: 30%; */
   padding: 1em 0;
-  /* background: red; */
   margin: 0.5em auto;
 }
+.container-photo-upload .inputs-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .container-photo-upload i {
   font-size: 4rem;
   margin: 0.2em 0;
@@ -550,6 +553,13 @@ footer nav ul {
   color: #444444;
 }
 
+#warning {
+  color: red;
+
+  font-size: 0.7rem;
+
+  display: none;
+}
 .modal--create form {
   text-align: left;
   margin-top: 20px;
@@ -557,25 +567,59 @@ footer nav ul {
   flex-direction: column;
 }
 
-.modal--create form button {
+.modal--create form #add-photo {
   font-size: 1.2em;
   border: none;
   padding: 10px 1.5em;
   margin: 0.5em 0;
-  font-weight: 700;
-  color: #306685;
+  color: white;
   border-radius: 60px;
-  background: #cbd6dc;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
   font-weight: 500;
   font-family: Work Sans;
+
+  background: #cbd6dc;
+  color: #306685;
+}
+
+.modal--create form #add-photo {
+  cursor: pointer;
+}
+
+.modal--create form #fakeBtn {
+  font-size: 1.2em;
+  border: none;
+  padding: 10px 0em;
+  margin: 0.5em 0;
+  border-radius: 60px;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  font-weight: 500;
+  font-family: Work Sans;
+  color: white;
+  margin-bottom: 1em;
+  margin-top: 0.8em;
+  width: 50%;
+  text-align: center;
+  background: #a7a7a7;
 }
 
 .modal--create form #submitForm {
-  background: #1d6154;
+  font-size: 1.2em;
+  border: none;
+  padding: 10px 1.5em;
+  margin: 0.5em 0;
+  border-radius: 60px;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  font-weight: 500;
+  font-family: Work Sans;
   color: white;
   margin-bottom: 1em;
+  margin-top: 0.8em;
+  width: 50%;
+  background: #1d6154;
+  display: none;
 }
+
 .modal--create form label {
   font-weight: 500;
   font-family: Work Sans;
@@ -599,7 +643,13 @@ footer nav ul {
   font-size: 1.2em;
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-  margin-bottom: 2em;
+  margin-bottom: 1.5em;
+}
+
+.modal--create .border {
+  height: 1px;
+  background: #b3b3b3;
+  width: 70%;
 }
 
 .modal--create form select:hover {
@@ -609,6 +659,17 @@ footer nav ul {
 .previous-modal {
   top: 5%;
   left: 5%;
+}
+.output-div {
+  display: none;
+}
+
+output {
+}
+
+output img {
+  max-height: 200px;
+  /* height: 100%; */
 }
 
 /*  */

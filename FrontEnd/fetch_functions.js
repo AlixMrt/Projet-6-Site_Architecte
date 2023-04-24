@@ -10,8 +10,6 @@ const getData = async (key) => {
 // // // // // POST Work
 // // // //
 const postWork = (formData, token) => {
-  console.log([...formData]);
-  console.log(token);
   fetch(`${baseUrl}works`, {
     method: "POST",
     body: formData,
